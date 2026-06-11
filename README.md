@@ -18,7 +18,7 @@ The goal of this project is to evaluate:
 
 ## Design
 
-Figma Design:
+Live Preview::
 
 ```text
 [PASTE_FIGMA_LINK_HERE]
@@ -45,6 +45,19 @@ You may use additional libraries if needed.
 ---
 
 ## Requirements
+
+## Design System
+
+### Color Palette
+
+- Primary Background: `#F9F8F6`
+- Secondary Surface: `#D9CFC7`
+- Card / Section Background: `#EFE9E3`
+
+### Notes
+
+- Use colors consistently via Tailwind config or CSS variables.
+- Avoid hardcoding hex values directly in components.
 
 ### UI
 
@@ -235,6 +248,6 @@ project
 
 ## Deadline
 
-Duration: 5 Days
-
+* Duration: 4 Days  
+* Submission deadline: Tuesday night, June 16, 2026  
 Good luck and enjoy building.
