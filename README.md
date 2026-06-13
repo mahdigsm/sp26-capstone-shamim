@@ -21,7 +21,7 @@ The goal of this project is to evaluate:
 Live Preview::
 
 ```text
-[PASTE_FIGMA_LINK_HERE]
+spring-2026-capstone.vercel.app
 ```
 
 Carefully inspect all screens, components, spacing, typography, colors, and interactions before starting development.
