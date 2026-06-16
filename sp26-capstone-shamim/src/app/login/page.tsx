@@ -1,7 +1,33 @@
+"use client";
+
+import { useRouter } from "next/navigation";
+
 export default function LoginPage() {
+  const router = useRouter();
   return (
-    <div className="min-h-screen flex items-center justify-center bg-primary p-4">
-      <div className="w-full max-w-115 overflow-hidden rounded-3xl border-3 bg-Section shadow-xl flex flex-col md:flex-row mt-25">
+    <div className="min-h-screen flex flex-col items-center justify-center bg-primary p-4">
+      <div className="flex items-center justify-center gap-2 mb-8 text-2xl text-bold text-foreground tracking-tight">
+        <div className="size-10 bg-black rounded-lg flex items-center justify-center">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            className="lucide lucide-shopping-bag-icon lucide-shopping-bag text-primary"
+          >
+            <path d="M16 10a4 4 0 0 1-8 0" />
+            <path d="M3.103 6.034h17.794" />
+            <path d="M3.4 5.467a2 2 0 0 0-.4 1.2V20a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6.667a2 2 0 0 0-.4-1.2l-2-2.667A2 2 0 0 0 17 2H7a2 2 0 0 0-1.6.8z" />
+          </svg>
+        </div>
+        DigitalShelf
+      </div>
+      <div className="w-full max-w-115 overflow-hidden rounded-3xl border-3 bg-Section shadow-xl flex-1 flex items-center justify-center md:flex-row ">
         <div className="flex-1 p-8 md:p-12">
           <h1 className="text-2xl mt-4 ">Welcome back</h1>
           <p className="mt-2 text-gray-500">Sign in to your admin dashboard</p>
@@ -12,9 +38,11 @@ export default function LoginPage() {
               className="rounded-xl border p-3"
               placeholder="you@company.com"
             />
+
             <div className="flex items-center justify-between">
-              <h2>Password</h2>
-              <button className="text-xs text-muted-foreground  transition-colors">
+              <h1> Password</h1>
+
+              <button className="text-xs text-muted-foreground  transition-colors hover:text-black">
                 Forget password?
               </button>
             </div>
@@ -30,14 +58,29 @@ export default function LoginPage() {
 
               <p>Remember me for 30 days</p>
             </div>
-            <button className="rounded-xl bg-black px-4 py-3 text-white">
+            <button
+              className="rounded-xl bg-black px-4 py-3 text-white"
+              onClick={() => router.push("/dashboard")}
+            >
               Sign in
             </button>
+            <div className="my-1">
+              <div
+                data-orientation="horizontal"
+                role="none"
+                data-slot="separator-root"
+                className="bg-border shrink-0 data-[orientation=horizontal]:h-px data-[orientation=horizontal]:w-full data-[orientation=vertical]:h-full data-[orientation=vertical]:w-px"
+              ></div>
 
-            <p className="px-3 text-xs text-muted-foreground justify-center">
-              or continue with
-            </p>
-            <button className="bg-primary px-4 py-3 inline-flex items-center justify-center gap-2 rounded-xl">
+              <p className="absolute left-1/2 -translate-x-1/2 -translate-y-1/2  px-3 text-sm text-muted-foreground">
+                or continue with
+              </p>
+            </div>
+
+            <button
+              className="bg-primary px-4 py-3 inline-flex items-center justify-center gap-2 rounded-xl"
+              onClick={() => router.push("/dashboard")}
+            >
               <svg className="w-4 h-4 mr-2" viewBox="0 0 24 24">
                 <path
                   d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
@@ -60,6 +103,10 @@ export default function LoginPage() {
             </button>
           </div>
         </div>
+      </div>
+      <div className="text-sm mt-6 text-gray-500 hover:text-shadow-mist-950">
+        By signing in, you agree to our <u>Terms of Service</u> and
+        <u>Privacy Policy.</u>
       </div>
     </div>
   );

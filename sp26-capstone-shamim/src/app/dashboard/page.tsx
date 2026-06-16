@@ -1,16 +1,12 @@
-import React from 'react'
-
+import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
+import { AppSidebar } from "@/components/app-sidebar";
 function DashboardPage() {
   return (
-    <div className="p-10">
-        <h1 className="text-2xl">
-            dashboard page
-        </h1>
-        <p>
-            welcome to dashboard page
-        </p>
-        </div>
-  )
+    <div className="bg-amber-300 h-screen flex ">
+      {/* side bar */}
+      {/* nav */}
+    </div>
+  );
 }
 
-export default DashboardPage
+export default DashboardPage;
