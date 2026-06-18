@@ -1,5 +1,3 @@
-import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
-import { AppSidebar } from "@/components/app-sidebar";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Inter } from "next/font/google";
 import "./globals.css";
@@ -24,30 +22,20 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html
       lang="en"
       className={cn(
-        "h-full",
-        "antialiased",
+        "h-full antialiased",
         geistSans.variable,
         geistMono.variable,
-        "font-sans",
         inter.variable,
       )}
     >
-      <body>
-        {/* <SidebarProvider> */}
-        {/* <AppSidebar /> */}
-        {/* <main> */}
-        {/* <SidebarTrigger /> */}
-        {children}
-        {/* </main> */}
-        {/* </SidebarProvider> */}
-      </body>
+      <body className="h-full">{children}</body>
     </html>
   );
 }
