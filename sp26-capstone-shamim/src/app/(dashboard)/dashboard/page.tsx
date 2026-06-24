@@ -12,6 +12,9 @@ import {
 } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { TabsDemo } from "@/components/tabs-demo";
+import RevenueChart from "@/components/chart-bar-demo-axis";
+import { ComboboxBasic } from "@/components/combo-list";
 function DashboardPage() {
   return (
     <div className="flex-1 flex flex-col min-w-0 overflow-hidden bg-primary">
@@ -50,7 +53,7 @@ function DashboardPage() {
         </Alert>
       </div>
       {/* 4card */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 ">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pb-9">
         <Card className="bg-Section rounded-lg border-2">
           <CardContent>
             {/* hed */}
@@ -141,6 +144,14 @@ function DashboardPage() {
             </div>
           </CardContent>
         </Card>
+      </div>
+      {/* <div className="flex bg-red-400 flex-col w-full mt-10">
+        <TabsDemo />
+        <ComboboxBasic />
+      </div> */}
+
+      <div className="w-full">
+        <TabsDemo />
       </div>
     </div>
   );
