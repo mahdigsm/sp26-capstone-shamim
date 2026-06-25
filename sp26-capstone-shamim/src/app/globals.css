@@ -47,10 +47,11 @@
   --radius-4xl: calc(var(--radius) * 2.6);
   --color-primary: #faf9f7;
   --color-input: #efe9e3;
-  --color-Secondary: #dbc9c1;
+  --color-Secondary: #d9cfc7;
   --color-Section: #f0eae4;
   --color-graytext: #78716c;
   --color-grayicon: #544644;
+  --color-Chart: #c2410c;
 }
 
 :root {

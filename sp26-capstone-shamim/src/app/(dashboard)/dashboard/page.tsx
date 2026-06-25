@@ -1,5 +1,5 @@
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
-import { CardContent } from "@/components/ui/card";
+import { CardContent, CardHeader } from "@/components/ui/card";
 import {
   DollarSign,
   Download,
@@ -12,6 +12,10 @@ import {
 } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { TabsDemo } from "@/components/tabs-demo";
+import { ProductTable } from "@/components/product-table";
+import { CalendarDemo } from "@/components/calender-tab";
+import { Pagination } from "@/components/ui/pagination";
 function DashboardPage() {
   return (
     <div className="flex-1 flex flex-col min-w-0 overflow-hidden bg-primary">
@@ -50,7 +54,7 @@ function DashboardPage() {
         </Alert>
       </div>
       {/* 4card */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 ">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pb-9">
         <Card className="bg-Section rounded-lg border-2">
           <CardContent>
             {/* hed */}
@@ -141,6 +145,26 @@ function DashboardPage() {
             </div>
           </CardContent>
         </Card>
+      </div>
+      <TabsDemo />
+      <div className="w-full pt-8">
+        <div className="grid grid-cols-1 xl:grid-cols-3 gap-6">
+          <div className="xl:col-span-2">
+            <ProductTable />
+          </div>
+
+          {/* 
+          <Card className="h-250 bg-Section">
+            <CardHeader>
+              <h2 className="text-xl">Calendar</h2>
+              <p className="text-base">Schedule and upcoming events</p>
+            </CardHeader>
+
+            <CardContent className="flex justify-center">
+              <CalendarDemo />
+            </CardContent>
+          </Card> */}
+        </div>
       </div>
     </div>
   );
