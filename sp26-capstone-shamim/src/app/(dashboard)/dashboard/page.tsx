@@ -1,5 +1,5 @@
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
-import { CardContent } from "@/components/ui/card";
+import { CardContent, CardHeader } from "@/components/ui/card";
 import {
   DollarSign,
   Download,
@@ -13,8 +13,9 @@ import {
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { TabsDemo } from "@/components/tabs-demo";
-import RevenueChart from "@/components/chart-bar-demo-axis";
-import { ComboboxBasic } from "@/components/combo-list";
+import { ProductTable } from "@/components/product-table";
+import { CalendarDemo } from "@/components/calender-tab";
+import { Pagination } from "@/components/ui/pagination";
 function DashboardPage() {
   return (
     <div className="flex-1 flex flex-col min-w-0 overflow-hidden bg-primary">
@@ -145,13 +146,25 @@ function DashboardPage() {
           </CardContent>
         </Card>
       </div>
-      {/* <div className="flex bg-red-400 flex-col w-full mt-10">
-        <TabsDemo />
-        <ComboboxBasic />
-      </div> */}
+      <TabsDemo />
+      <div className="w-full pt-8">
+        <div className="grid grid-cols-1 xl:grid-cols-3 gap-6">
+          <div className="xl:col-span-2">
+            <ProductTable />
+          </div>
 
-      <div className="w-full">
-        <TabsDemo />
+          {/* 
+          <Card className="h-250 bg-Section">
+            <CardHeader>
+              <h2 className="text-xl">Calendar</h2>
+              <p className="text-base">Schedule and upcoming events</p>
+            </CardHeader>
+
+            <CardContent className="flex justify-center">
+              <CalendarDemo />
+            </CardContent>
+          </Card> */}
+        </div>
       </div>
     </div>
   );
