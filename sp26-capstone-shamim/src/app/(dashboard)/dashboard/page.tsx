@@ -16,6 +16,7 @@ import { TabsDemo } from "@/components/tabs-demo";
 import { ProductTable } from "@/components/product-table";
 import { CalendarDemo } from "@/components/calender-tab";
 import { Pagination } from "@/components/ui/pagination";
+import { TableDemo } from "@/components/info-table";
 function DashboardPage() {
   return (
     <div className="flex-1 flex flex-col min-w-0 overflow-hidden bg-primary">
@@ -151,6 +152,9 @@ function DashboardPage() {
         <div className="grid grid-cols-1 xl:grid-cols-3 gap-6">
           <div className="xl:col-span-2">
             <ProductTable />
+            <div className="w-full pt-8">
+              <TableDemo />
+            </div>
           </div>
 
           {/* 
