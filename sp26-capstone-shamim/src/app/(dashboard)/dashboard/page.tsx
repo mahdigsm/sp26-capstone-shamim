@@ -17,6 +17,8 @@ import { ProductTable } from "@/components/product-table";
 import { CalendarDemo } from "@/components/calender-tab";
 import { Pagination } from "@/components/ui/pagination";
 import { TableDemo } from "@/components/info-table";
+import TasksCard from "@/components/task-cart";
+import NotificationsCard from "@/components/notif";
 function DashboardPage() {
   return (
     <div className="flex-1 flex flex-col min-w-0 overflow-hidden bg-primary">
@@ -156,18 +158,13 @@ function DashboardPage() {
               <TableDemo />
             </div>
           </div>
-
-          {/* 
-          <Card className="h-250 bg-Section">
-            <CardHeader>
-              <h2 className="text-xl">Calendar</h2>
-              <p className="text-base">Schedule and upcoming events</p>
-            </CardHeader>
-
-            <CardContent className="flex justify-center">
+          <div className="space-y-4">
+            <div className="flex justify-center bg-section">
               <CalendarDemo />
-            </CardContent>
-          </Card> */}
+            </div>
+            <TasksCard />
+            <NotificationsCard />
+          </div>
         </div>
       </div>
     </div>
