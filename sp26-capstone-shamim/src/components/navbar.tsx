@@ -9,7 +9,7 @@ import React from "react";
 import { Input } from "./ui/input";
 function Navbar() {
   return (
-    <header className="flex items-center md:justify-between px-6 py-5 border-b border-border bg-primary shrink-0 transition-colors duration-300">
+    <header className="flex items-center md:justify-between px-6 bg-primary shrink-0 transition-colors duration-300">
       <div className="flex items-center gap-3 flex-1 max-w-sm">
         <div className="relative w-full ">
           <Search className="absolute size-5 left-3.5 top-2.5 text-graytext" />
