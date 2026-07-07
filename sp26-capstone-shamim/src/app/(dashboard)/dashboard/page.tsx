@@ -1,3 +1,4 @@
+
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { CardContent, CardHeader } from "@/components/ui/card";
 import {
@@ -19,29 +20,23 @@ import { Pagination } from "@/components/ui/pagination";
 import { TableDemo } from "@/components/info-table";
 import TasksCard from "@/components/task-cart";
 import NotificationsCard from "@/components/notif";
+import {SonnerType} from "@/components/sonner-type";
+import {DialogDemo} from "@/components/dialog-button";
 function DashboardPage() {
   return (
     <div className="flex-1 flex flex-col min-w-0 overflow-hidden bg-primary">
       {/* h,p */}
       <div className="flex items-center mb-5 justify-between flex-wrap gap-3">
         <div>
-          <h1 className="font-semi-bold text-2xl">Dashboard</h1>
-          <p className="text-graytext">
+          <h1 className="font-bold  text-2xl">Dashboard</h1>
+          <p className="text-graytext text-sm mt-2">
             Welcome back, Alex.Here`swhat`shappening today.
           </p>
         </div>
         <div className="flex items-center gap-2">
-          <Button className=" bg-primary inline-flex items-center h-10 justify-center text-sm text-black  icon-xs rounded-sm border-graytext">
-            {/* sonner */}
-            <Download />
-            Export
-          </Button>
-
-          <Button className=" bg-black h-10 inline-flex items-center justify-center text-sm text-white  icon-xs rounded-sm border-graytext">
-            {/* dialog */}
-            <Package />
-            Add Product
-          </Button>
+          <div> <SonnerType/>
+            </div>           
+          <DialogDemo/>
         </div>
       </div>
       <div className="mb-6">
