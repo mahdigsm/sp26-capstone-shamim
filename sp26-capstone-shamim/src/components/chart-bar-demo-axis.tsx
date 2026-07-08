@@ -7,6 +7,7 @@ import {
   CartesianGrid,
   XAxis,
   YAxis,
+  Tooltip,
 } from "recharts";
 
 const data = [
@@ -20,12 +21,28 @@ const data = [
   { month: "Aug", revenue: 39500 },
 ];
 
+function CustomTooltip({ active, payload, label }: any) {
+  if (!active || !payload || !payload.length) return null;
+
+  return (
+    <div className="rounded-2xl border border-[#e7ddd3] bg-[#f8f2eb] px-4 py-3 shadow-md">
+      <p className="mb-2 text-sm font-medium text-black">{label}</p>
+      <p className="text-sm text-black">
+        Revenue : ${payload[0].value.toLocaleString()}
+      </p>
+    </div>
+  );
+}
+
 export default function RevenueChart() {
   return (
     <div className="rounded-3xl p-6">
       <div className="mt-8 h-[350px]">
         <ResponsiveContainer width="100%" height="100%">
-          <LineChart data={data}>
+          <LineChart
+            data={data}
+            margin={{ top: 10, right: 10, left: 0, bottom: 0 }}
+          >
             <CartesianGrid
               stroke="rgba(120,113,108,0.15)"
               strokeDasharray="3 3"
@@ -46,13 +63,23 @@ export default function RevenueChart() {
               tick={{ fill: "#78716c", fontSize: 15 }}
             />
 
+            <Tooltip
+              content={<CustomTooltip />}
+              cursor={{ stroke: "#d6ccc2", strokeWidth: 1 }}
+            />
+
             <Line
               type="monotone"
               dataKey="revenue"
               stroke="#171717"
               strokeWidth={3}
               dot={false}
-              activeDot={false}
+              activeDot={{
+                r: 5,
+                fill: "#171717",
+                stroke: "#ffffff",
+                strokeWidth: 2,
+              }}
             />
           </LineChart>
         </ResponsiveContainer>

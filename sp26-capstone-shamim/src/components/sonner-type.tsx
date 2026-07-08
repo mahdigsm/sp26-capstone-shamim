@@ -17,7 +17,6 @@ className="w-fit bg-primary inline-flex items-center h-10 justify-center text-sm
       >
         <Download/>
         Export
-        
       </Button>
   )
 }

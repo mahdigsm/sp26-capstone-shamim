@@ -11,6 +11,7 @@ import NotificationsCard from "@/components/notif";
 import {SonnerType} from "@/components/sonner-type";
 import {DialogDemo} from "@/components/dialog-button";
 import CardsText from "@/components/Cards-text";
+import { SonnerAlert } from "@/components/sonner-alert";
 function DashboardPage() {
   return (
     <div className="flex-1 flex flex-col min-w-0 overflow-hidden bg-primary">
@@ -33,10 +34,8 @@ function DashboardPage() {
           <TriangleAlert className="h-4 w-4" />
           <AlertTitle className="text-amber-800">Low stock warning</AlertTitle>
           <AlertDescription className="mb-2 flex flex-col items-start gap-2 text-amber-700">
-            Analytics Dashboard Kit has only 15 licenses remaining.
-            <button className="underline text-lg hover:no-underline text-amber-700">
-              Review inventory →
-            </button>
+            Analytics Dashboard Kit has only 15 licenses remaining
+              <SonnerAlert/>
           </AlertDescription>
         </Alert>
       </div>

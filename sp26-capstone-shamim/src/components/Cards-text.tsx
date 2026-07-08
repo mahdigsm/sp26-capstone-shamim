@@ -3,7 +3,7 @@ import   {DollarSign,
   Package,
   ShoppingCart,
   TrendingDown,
-  TrendingUp,User} from "lucide-react";
+  TrendingUp,Users} from "lucide-react";
   import {
   Card,
   CardContent,
@@ -12,7 +12,7 @@ export default function CardsText() {
   return (
     <div>
          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pb-9">
-        <Card className="bg-Section rounded-lg border-2">
+        <Card className="bg-Section rounded-lg border-2 border-Secondary  hover:shadow-lg hover:-translate-y-1 duration-300">
           <CardContent>
             {/* hed */}
             <div className="flex items-start justify-between">
@@ -20,10 +20,10 @@ export default function CardsText() {
                 <p className="text-sm text-muted-foreground uppercase">
                   Total Revenue
                 </p>
-                <h3 className="text-2xl mt-2">$ 38,720</h3>
+                <h3 className="text-2xl font-semibold mt-2">$ 38,720</h3>
               </div>
               <div className="h-12 w-12 rounded-lg bg-Secondary flex items-center justify-center">
-                <DollarSign className="size-5 text-graytext" />
+                <DollarSign className="size-5 text-grayicon" />
               </div>
             </div>
 
@@ -35,7 +35,7 @@ export default function CardsText() {
             </div>
           </CardContent>
         </Card>
-        <Card className="bg-Section rounded-lg border-2">
+        <Card className="bg-Section rounded-lg border-2 border-Secondary hover:shadow-lg hover:-translate-y-1 duration-300 ">
           <CardContent>
             {/* hed */}
             <div className="flex items-start justify-between">
@@ -43,7 +43,7 @@ export default function CardsText() {
                 <p className="text-sm text-muted-foreground uppercase">
                   Total Orders
                 </p>
-                <h3 className="text-2xl mt-2">$302</h3>
+                <h3 className="text-2xl font-semibold mt-2">$302</h3>
               </div>
               <div className="h-12 w-12 rounded-lg bg-Secondary flex items-center justify-center">
                 <ShoppingCart className="size-5 text-grayicon" />
@@ -58,7 +58,7 @@ export default function CardsText() {
             </div>
           </CardContent>
         </Card>
-        <Card className="bg-Section rounded-lg border-2">
+        <Card className="bg-Section rounded-lg border-2 border-Secondary  hover:shadow-lg hover:-translate-y-1 duration-300">
           <CardContent>
             {/* hed */}
             <div className="flex items-start justify-between">
@@ -66,7 +66,7 @@ export default function CardsText() {
                 <p className="text-sm text-muted-foreground uppercase">
                   Active Products
                 </p>
-                <h3 className="text-2xl mt-2">$24</h3>
+                <h3 className="text-2xl font-semibold mt-2">$24</h3>
               </div>
               <div className="h-12 w-12 rounded-lg bg-Secondary flex items-center justify-center">
                 <Package className="size-5 text-grayicon" />
@@ -80,7 +80,7 @@ export default function CardsText() {
             </div>
           </CardContent>
         </Card>
-        <Card className="bg-Section rounded-lg border-2">
+        <Card className="bg-Section rounded-lg border-2 border-Secondary  hover:shadow-lg hover:-translate-y-1 duration-300">
           <CardContent>
             {/* hed */}
             <div className="flex items-start justify-between">
@@ -88,10 +88,10 @@ export default function CardsText() {
                 <p className="text-sm text-muted-foreground uppercase">
                   Total Customers
                 </p>
-                <h3 className="text-2xl mt-2">$6,841</h3>
+                <h3 className="text-2xl mt-2 font-semibold">$6,841</h3>
               </div>
               <div className="h-12 w-12 rounded-lg bg-Secondary flex items-center justify-center">
-                <User className="size-5 text-grayicon" />
+                <Users className="size-5 text-grayicon" />
               </div>
             </div>
             {/* foot */}
