@@ -106,7 +106,7 @@ export function TabsDemo() {
         <TabsTrigger value="categories">By Category</TabsTrigger>
       </TabsList>
       <TabsContent value="Revenue">
-        <Card className="bg-Section p-3 border border-Secondary pt-5">
+        <Card className="bg-Section p-3 border border-Secondary pt-5 mt-4">
           <CardHeader>
             <CardTitle className="text-xl">Revenue Overview</CardTitle>
             <CardDescription>
