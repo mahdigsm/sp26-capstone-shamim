@@ -12,6 +12,8 @@ className="w-fit bg-primary inline-flex items-center h-10 justify-center text-sm
         onClick={() => toast.success(
            "Success",  {
           description: "Report exported to CSV successfully",
+          className:
+            "!border !border-green-500 !border-l-5 !border-l-green-500 !rounded-xl !bg-white !shadow-md"
            }
              )}
       >

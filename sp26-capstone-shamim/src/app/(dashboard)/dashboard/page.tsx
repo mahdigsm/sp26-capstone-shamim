@@ -1,4 +1,6 @@
+"use client"
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
+import Interactive from "@/components/Interactive";
 import {
   TriangleAlert,
 } from "lucide-react";
@@ -11,7 +13,9 @@ import NotificationsCard from "@/components/notif";
 import {SonnerType} from "@/components/sonner-type";
 import {DialogDemo} from "@/components/dialog-button";
 import CardsText from "@/components/Cards-text";
+import HelpFaq from "@/components/help-faq";
 import { SonnerAlert } from "@/components/sonner-alert";
+import { Card } from "@/components/ui/card";
 function DashboardPage() {
   return (
     <div className="flex-1 flex flex-col min-w-0 overflow-hidden bg-primary">
@@ -56,6 +60,13 @@ function DashboardPage() {
             </div>
             <TasksCard />
             <NotificationsCard />
+            
+          </div>
+          <div className="xl:col-span-3">
+  <div className="grid grid-cols-1 xl:grid-cols-2 gap-6">
+            <Interactive/>
+            <HelpFaq/>
+          </div>
           </div>
         </div>
       </div>
