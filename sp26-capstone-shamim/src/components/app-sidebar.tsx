@@ -43,11 +43,11 @@ export function AppSidebar() {
               <SidebarMenuButton
                 asChild
                 tooltip={item.title}
-                className="h-11 data-[active=true]:bg-black data-[active=true]:text-white font-bold"
+                className="h-9 data-[active=true]:bg-black data-[active=true]:text-white font-bold"
               >
                 <a
                   href={item.url}
-                  className="flex-1 px-2 py-4 space-y-0.5 bg-black text-white rounded-xs text-sm"
+                  className="flex-1 px-2 py-4 space-y-0.5 bg-black text-white rounded-[0.5rem]! text-sm"
                 >
                   <item.icon className="size-5" />
                   <span>{item.title}</span>

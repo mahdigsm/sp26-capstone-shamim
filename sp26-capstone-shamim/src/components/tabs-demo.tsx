@@ -12,7 +12,7 @@ import { Progress } from "@/components/ui/progress";
 
 export function TabsDemo() {
   return (
-    <Tabs defaultValue="overview" className="w-full">
+    <Tabs defaultValue="Revenue" className="w-full">
       <TabsList
         className="
     grid
