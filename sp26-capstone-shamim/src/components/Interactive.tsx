@@ -20,7 +20,7 @@ import { Alert, AlertTitle, AlertDescription } from '@/components/ui/alert';
 export default function Interactive() {
   return (
     
-        <Card className="bg-Section w-full h-110 border-Secondary border rounded-xl">
+        <Card className="bg-Section w-full h-auto border-Secondary border rounded-xl mt-6">
             <CardHeader>
                 <CardTitle>
                     <h1>
@@ -95,7 +95,7 @@ export default function Interactive() {
   <Info className="h-5 w-5 text-green-600 mt-0.5" />
 
   <div className="flex-1">
-    <AlertTitle className="text-sm font-semibold text-black">
+    <AlertTitle className="text-sm font-semibold text-black border-input">
       Tip
     </AlertTitle>
 
