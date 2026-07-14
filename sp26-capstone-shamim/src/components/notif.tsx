@@ -39,14 +39,14 @@ export default function NotificationsCard() {
     <Card className="rounded-xl bg-Section">
       <CardHeader>
         <div className="flex items-center justify-between">
-          <CardTitle className="text-base font-semibold">
+          <CardTitle className="text-base font-sans pb-6">
             Notifications
           </CardTitle>
 
           <div className="flex items-center gap-2">
             <span className="text-xs text-muted-foreground">Enable</span>
 
-            <Switch defaultChecked />
+            <Switch defaultChecked/>
           </div>
         </div>
       </CardHeader>
@@ -60,7 +60,7 @@ export default function NotificationsCard() {
               <Icon size={18} className={`${item.color} mt-1 shrink-0`} />
 
               <div>
-                <p className="text-sm">{item.title}</p>
+                <p className="text-xs">{item.title}</p>
 
                 <span className="text-xs text-muted-foreground">
                   {item.time}
