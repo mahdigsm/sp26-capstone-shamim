@@ -19,9 +19,9 @@ export function CalendarDemo() {
   return (
     <Card className="rounded-xl w-full bg-Section">
       <CardHeader className="items-center text-left">
-        <CardTitle className="">Calendar</CardTitle>
+        <CardTitle className="font-sans text-base">Calendar</CardTitle>
 
-        <CardDescription>Schedule and upcoming events</CardDescription>
+        <CardDescription className="font-sans text-base font-stretch-semi-expanded">Schedule and upcoming events</CardDescription>
       </CardHeader>
 
       <CardContent className="flex justify-center">
