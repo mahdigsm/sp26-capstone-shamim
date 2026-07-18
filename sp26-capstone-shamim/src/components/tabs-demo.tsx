@@ -20,16 +20,18 @@ export function TabsDemo() {
     w-full md:w-fit
     h-auto
     bg-Section
+    dark:bg-background
     rounded-xl
     p-1
     mb-3
-  ">
+  "
+      >
         <TabsTrigger value="Revenue">Revenue</TabsTrigger>
         <TabsTrigger value="Orders">Orders</TabsTrigger>
         <TabsTrigger value="categories">By Category </TabsTrigger>
       </TabsList>
       <TabsContent value="Revenue">
-        <Card className="bg-Section p-7! border border-Secondary">
+        <Card className="bg-Section p-7! border border-Secondary dark:bg-background">
           <CardHeader>
             <CardTitle className="text-xl pt-2">Revenue Overview</CardTitle>
             <CardDescription className="text-xl mt-2">
@@ -58,7 +60,9 @@ export function TabsDemo() {
         <Card className="bg-Section pb-6 border border-Secondary p-7 px-4">
           <CardHeader>
             <CardTitle className="text-xl">Sales by Category</CardTitle>
-            <CardDescription className="text-xl mt-2">Product category breakdown</CardDescription>
+            <CardDescription className="text-xl mt-2">
+              Product category breakdown
+            </CardDescription>
           </CardHeader>
           <CardContent className="space-y-6 pt-4">
             <div>

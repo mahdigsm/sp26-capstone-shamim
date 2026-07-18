@@ -196,7 +196,7 @@ export function ProductTable() {
     }
   };
   return (
-    <Card className="bg-Section rounded-base">
+    <Card className="bg-Section rounded-base dark:bg-background">
       <CardHeader>
         <div className="flex items-center justify-between flex-wrap gap-4">
           <div>

@@ -38,9 +38,9 @@ export default function RootLayout({
       )}
     >
       <body className="h-full">
-        {/* <ThemeProvider> */}
+        <ThemeProvider attribute="class" defaultTheme="dark">
           {children}
-        {/* </ThemeProvider> */}
+        </ThemeProvider>
       </body>
     </html>
   );

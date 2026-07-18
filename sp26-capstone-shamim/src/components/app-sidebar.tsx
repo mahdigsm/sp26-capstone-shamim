@@ -17,7 +17,7 @@ export function AppSidebar() {
   const isCollapsed = state === "collapsed";
   return (
     <Sidebar
-      className="bg-Section border-r"
+      className="bg-Section dark:bg-foreground border-r"
       collapsible="icon"
       variant="sidebar"
     >
@@ -26,8 +26,8 @@ export function AppSidebar() {
       </div>
       <SidebarHeader className="h-15.5 flex flex-row items-center justify-start px-4 border-b overflow-hidden">
         <div className="flex items-center gap-3 shrink-0">
-          <div className="size-9 bg-black text-white rounded-sm flex items-center justify-center shrink-0">
-            <ShoppingBag className="size-4" />
+          <div className="size-9 bg-black text-white rounded-sm flex items-center justify-center shrink-0 dark:bg-input ">
+            <ShoppingBag className="size-4 dark:text-black" />
           </div>
           {!isCollapsed && (
             <span className="text-base whitespace-nowrap transition-all duration-300 rounded-xs font-semibold">
@@ -47,9 +47,9 @@ export function AppSidebar() {
               >
                 <a
                   href={item.url}
-                  className="flex-1 px-2 py-4 space-y-0.5 bg-black text-white rounded-[0.5rem]! text-sm"
+                  className="flex-1 px-2 py-4 space-y-0.5 bg-black text-white rounded-[0.5rem]! text-sm dark:text-black dark:bg-input"
                 >
-                  <item.icon className="size-5" />
+                  <item.icon className="size-5 dark:text-black" />
                   <span>{item.title}</span>
                 </a>
               </SidebarMenuButton>
@@ -57,27 +57,27 @@ export function AppSidebar() {
           ))}
         </SidebarMenu>
       </SidebarContent>
-     <SidebarFooter className="border-t border-sidebar-border p-3 group-data-[collapsible=icon]:hidden">
-  <div className="rounded-lg border border-sidebar-border bg-background/60 p-3">
-    <div className="mb-2 flex items-center gap-2">
-      <Package className="text-graytext" />
-      <span className="text-xs font-semibold text-black">
-        Storage Used
-      </span>
-    </div>
+      <SidebarFooter className="border-sidebar-border p-3 group-data-[collapsible=icon]:hidden">
+        <div className="rounded-lg border border-sidebar-border bg-background/60 p-3 dark:bg-background">
+          <div className="mb-2 flex items-center gap-2">
+            <Package className="text-graytext" />
+            <span className="text-xs font-semibold text-black dark:text-input">
+              Storage Used
+            </span>
+          </div>
 
-    <div className="mb-2 w-full rounded-full bg-Secondary h-1.5">
-      <div
-        className="h-1.5 rounded-full bg-black transition-all duration-500"
-        style={{ width: "68%" }}
-      />
-    </div>
+          <div className="mb-2 w-full rounded-full dark:bg-card-foreground bg-Secondary h-1.5">
+            <div
+              className="h-1.5 rounded-full bg-black dark:bg-input  transition-all duration-500"
+              style={{ width: "68%" }}
+            />
+          </div>
 
-    <p className="text-xs text-graytext font-medium">
-      6.8 GB of 10 GB
-    </p>
-  </div>
-</SidebarFooter>
+          <p className="text-xs text-graytext font-medium dark:text-input">
+            6.8 GB of 10 GB
+          </p>
+        </div>
+      </SidebarFooter>
     </Sidebar>
   );
 }

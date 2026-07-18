@@ -55,7 +55,7 @@ export default function TasksCard() {
   };
 
   return (
-    <Card className="rounded-2xl shadow-sm bg-Section">
+    <Card className="rounded-2xl shadow-sm bg-Section dark:bg-background">
       <CardHeader className="pb-5 flex flex-row items-center justify-between">
         <CardTitle className="pt-2 text-sm font-semibold">Tasks</CardTitle>
 

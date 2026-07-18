@@ -1,13 +1,18 @@
-"use client"
+"use client";
 
-import { useTheme } from "next-themes"
+import { Moon, Sun } from "lucide-react";
+import { useTheme } from "next-themes";
 
 export default function TestTheme() {
-  const { setTheme } = useTheme()
+  const { theme, setTheme } = useTheme();
 
   return (
-    <button onClick={() => setTheme("dark")} className="text-black">
-      Dark Mode
+    <button
+      onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+      className="rounded-md p-2 hover:bg-accent"
+    >
+      darkmode
+      {theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
     </button>
-  )
+  );
 }

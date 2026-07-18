@@ -62,7 +62,7 @@ const invoices = [
 
 export function TableDemo() {
   return (
-    <Card className="rounded-2xl border shadow-none bg-Section">
+    <Card className="rounded-2xl border shadow-none bg-Section dark:bg-background">
       <CardHeader className="pb-5">
         <CardTitle className="text-lg font-semibold">Recent Orders</CardTitle>
 

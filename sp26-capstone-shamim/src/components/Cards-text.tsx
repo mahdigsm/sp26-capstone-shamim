@@ -1,18 +1,18 @@
-import React from 'react'
-import   {DollarSign,
+import React from "react";
+import {
+  DollarSign,
   Package,
   ShoppingCart,
   TrendingDown,
-  TrendingUp,Users} from "lucide-react";
-  import {
-  Card,
-  CardContent,
-} from "@/components/ui/card"
+  TrendingUp,
+  Users,
+} from "lucide-react";
+import { Card, CardContent } from "@/components/ui/card";
 export default function CardsText() {
   return (
     <div>
-         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pb-9">
-        <Card className="bg-Section rounded-lg border-2 border-Secondary  hover:shadow-lg hover:-translate-y-1 duration-300">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pb-9">
+        <Card className="bg-Section dark:bg-background rounded-lg border-2 border-Secondary  hover:shadow-lg hover:-translate-y-1 duration-300">
           <CardContent>
             {/* hed */}
             <div className="flex items-start justify-between">
@@ -35,7 +35,7 @@ export default function CardsText() {
             </div>
           </CardContent>
         </Card>
-        <Card className="bg-Section rounded-lg border-2 border-Secondary hover:shadow-lg hover:-translate-y-1 duration-300 ">
+        <Card className="bg-Section dark:bg-background rounded-lg border-2 border-Secondary hover:shadow-lg hover:-translate-y-1 duration-300 ">
           <CardContent>
             {/* hed */}
             <div className="flex items-start justify-between">
@@ -58,7 +58,7 @@ export default function CardsText() {
             </div>
           </CardContent>
         </Card>
-        <Card className="bg-Section rounded-lg border-2 border-Secondary  hover:shadow-lg hover:-translate-y-1 duration-300">
+        <Card className="bg-Section dark:bg-background rounded-lg border-2 border-Secondary  hover:shadow-lg hover:-translate-y-1 duration-300">
           <CardContent>
             {/* hed */}
             <div className="flex items-start justify-between">
@@ -80,7 +80,7 @@ export default function CardsText() {
             </div>
           </CardContent>
         </Card>
-        <Card className="bg-Section rounded-lg border-2 border-Secondary  hover:shadow-lg hover:-translate-y-1 duration-300">
+        <Card className="bg-Section dark:bg-background dark:border rounded-lg border-2 border-Secondary  hover:shadow-lg hover:-translate-y-1 duration-300">
           <CardContent>
             {/* hed */}
             <div className="flex items-start justify-between">
@@ -104,5 +104,5 @@ export default function CardsText() {
         </Card>
       </div>
     </div>
-  )
+  );
 }
