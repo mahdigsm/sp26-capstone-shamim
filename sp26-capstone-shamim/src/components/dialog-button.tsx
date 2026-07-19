@@ -1,4 +1,4 @@
-import { Button } from "@/components/ui/button"
+import { Button } from "@/components/ui/button";
 import {
   Dialog,
   DialogClose,
@@ -8,50 +8,61 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "@/components/ui/dialog"
-import { Package} from "lucide-react";
-import { Field, FieldGroup } from "@/components/ui/field"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
+} from "@/components/ui/dialog";
+import { Package } from "lucide-react";
+import { Field, FieldGroup } from "@/components/ui/field";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 export function DialogDemo() {
   return (
     <Dialog>
       <form>
-       <DialogTrigger asChild>
-  <Button variant="outline" className=" bg-black h-10 inline-flex items-center justify-center text-sm text-white  icon-xs rounded-sm border-graytext">
-    <Package />
-    Add Product</Button>
-</DialogTrigger>
+        <DialogTrigger asChild>
+          <Button
+            variant="outline"
+            className=" bg-black h-8 inline-flex items-center justify-center text-sm text-white dark:bg-input dark:text-foreground  icon-xs rounded-sm border-graytext"
+          >
+            <Package />
+            Add Product
+          </Button>
+        </DialogTrigger>
 
-<DialogContent className="sm:max-w-sm bg-primary h-120 w-250">
-  <DialogHeader>
-    <DialogTitle >Add New Product
-</DialogTitle>
-    <DialogDescription>
-     Fill in the details to create a new digital product listing.
-    </DialogDescription>
-  </DialogHeader>
+        <DialogContent className="sm:max-w-sm bg-primary h-120 w-250">
+          <DialogHeader>
+            <DialogTitle>Add New Product</DialogTitle>
+            <DialogDescription>
+              Fill in the details to create a new digital product listing.
+            </DialogDescription>
+          </DialogHeader>
 
-  <FieldGroup>
-    <Field>
-      <Label htmlFor="name-1">Product Name</Label>
-      <Input id="name-1" name="name" defaultValue="e.g. Advanced CSS Animations Course" />
-    </Field>
-    <Field>
-      <Label htmlFor="username-1">Description</Label>
-      <Input id="username-1" name="username" defaultValue="Brief product description..." />
-    </Field>
-  </FieldGroup>
+          <FieldGroup>
+            <Field>
+              <Label htmlFor="name-1">Product Name</Label>
+              <Input
+                id="name-1"
+                name="name"
+                defaultValue="e.g. Advanced CSS Animations Course"
+              />
+            </Field>
+            <Field>
+              <Label htmlFor="username-1">Description</Label>
+              <Input
+                id="username-1"
+                name="username"
+                defaultValue="Brief product description..."
+              />
+            </Field>
+          </FieldGroup>
 
-  <DialogFooter>
-    <DialogClose asChild>
-      <Button variant="outline">Cancel</Button>
-    </DialogClose>
+          <DialogFooter>
+            <DialogClose asChild>
+              <Button variant="outline">Cancel</Button>
+            </DialogClose>
 
-    <Button type="submit">Save changes</Button>
-  </DialogFooter>
-</DialogContent>
+            <Button type="submit">Save changes</Button>
+          </DialogFooter>
+        </DialogContent>
       </form>
     </Dialog>
-  )
+  );
 }

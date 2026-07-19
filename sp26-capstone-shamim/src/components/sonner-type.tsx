@@ -8,12 +8,12 @@ export function SonnerType() {
   return (
     <Button
       variant="outline"
-      className="w-fit dark:bg-background bg-primary inline-flex items-center h-10 justify-center text-sm text-black  icon-xs rounded-sm border-graytext"
+      className="w-fit dark:text-input dark:bg-foreground bg-primary inline-flex items-center h-8 justify-center text-sm text-black  icon-xs rounded-sm border-graytext"
       onClick={() =>
         toast.success("Success", {
           description: "Report exported to CSV successfully",
           className:
-            "!border !border-green-500 !border-l-5 !border-l-green-500 !rounded-xl !bg-white !shadow-md",
+            "!border !border-green-500 !border-l-5 !border-l-green-500 !rounded-xl !bg-white !shadow-md dark:bg-blue-500 !dark:bg-foreground",
         })
       }
     >

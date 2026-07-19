@@ -14,14 +14,14 @@ function Progress({
     <ProgressPrimitive.Root
       data-slot="progress"
       className={cn(
-        "relative flex h-2 w-full items-center overflow-x-hidden rounded-2xl bg-Secondary",
+        "relative flex h-2 w-full items-center overflow-x-hidden rounded-2xl dark:bg-secondary bg-Secondary",
         className,
       )}
       {...props}
     >
       <ProgressPrimitive.Indicator
         data-slot="progress-indicator"
-        className="size-full flex-1 bg-black transition-all"
+        className="size-full flex-1 bg-black transition-all dark:bg-input"
         style={{ transform: `translateX(-${100 - (value || 0)}%)` }}
       />
     </ProgressPrimitive.Root>

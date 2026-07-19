@@ -8,7 +8,7 @@ import {
   XAxis,
   YAxis,
 } from "recharts";
-
+import { useTheme } from "next-themes";
 import {
   ChartContainer,
   ChartTooltip,
@@ -17,24 +17,24 @@ import {
 } from "@/components/ui/chart";
 
 const chartData = [
-  { month: "January", mobile: 140 },
-  { month: "February", mobile: 178 },
-  { month: "March", mobile: 155 },
-  { month: "April", mobile: 214 },
-  { month: "May", mobile: 248 },
-  { month: "June", mobile: 231 },
-  { month: "July", mobile: 270 },
-  { month: "Aug", mobile: 302 },
+  { month: "January", order: 140 },
+  { month: "February", order: 178 },
+  { month: "March", order: 155 },
+  { month: "April", order: 214 },
+  { month: "May", order: 248 },
+  { month: "June", order: 231 },
+  { month: "July", order: 270 },
+  { month: "Aug", order: 302 },
 ];
 
 const chartConfig = {
-  mobile: {
-    label: "Mobile",
-    color: "#c2410c",
+  order: {
+    // label: "order",
   },
 } satisfies ChartConfig;
 
 export function ChartBar() {
+  const { resolvedTheme } = useTheme();
   return (
     <ChartContainer config={chartConfig} className="w-full h-[320px]">
       <BarChart accessibilityLayer data={chartData}>
@@ -47,15 +47,20 @@ export function ChartBar() {
           axisLine={false}
           tickFormatter={(value) => value.slice(0, 3)}
         />
-
-        <ChartTooltip content={<ChartTooltipContent />} />
+        <ChartTooltip
+          cursor={{
+            fill: "#ffffff",
+            fillOpacity: 0.12,
+          }}
+          content={<ChartTooltipContent />}
+        />
 
         <Bar
-          barSize={50}
-          dataKey="mobile"
-          fill="#c2410c"
+          dataKey="order"
+          fill="#f97316"
           radius={[6, 6, 0, 0]}
-        ></Bar>
+          barSize={50}
+        />
       </BarChart>
     </ChartContainer>
   );

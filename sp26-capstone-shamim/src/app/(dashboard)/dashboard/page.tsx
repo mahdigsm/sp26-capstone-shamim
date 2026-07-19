@@ -21,7 +21,7 @@ function DashboardPage() {
       {/* h,p */}
       <div className="flex items-center mb-5 justify-between flex-wrap gap-3">
         <div>
-          <h1 className="font-bold  text-2xl">Dashboard</h1>
+          <h1 className="font-bold  text-2xl dark:text-white">Dashboard</h1>
           <p className="text-graytext text-sm mt-2">
             Welcome back, Alex.Here`swhat`shappening today.
           </p>
@@ -35,10 +35,12 @@ function DashboardPage() {
         </div>
       </div>
       <div className="mb-6">
-        <Alert className=" bg-yellow-50 p-3 rounded-xl border-amber-200 dark:bg-amber-950 dark:border-amber-800">
-          <TriangleAlert className="h-4 w-4" />
-          <AlertTitle className="text-amber-800">Low stock warning</AlertTitle>
-          <AlertDescription className="mb-2 flex flex-col items-start gap-2 text-amber-700">
+        <Alert className="p-3 rounded-xl border-amber-200 dark:border-amber-600 dark:bg-sidebar-border">
+          <TriangleAlert className="h-4 w-4 dark:text-yellow-500" />
+          <AlertTitle className="text-amber-800 dark:text-yellow-400">
+            Low stock warning
+          </AlertTitle>
+          <AlertDescription className="mb-2 flex flex-col items-start gap-2 dark:text-yellow-500 text-amber-700">
             Analytics Dashboard Kit has only 15 licenses remaining
             <SonnerAlert />
           </AlertDescription>

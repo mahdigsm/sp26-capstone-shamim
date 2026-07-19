@@ -1,32 +1,28 @@
-"use client"
+"use client";
 
-import { useTheme } from "next-themes"
-import { Toaster as Sonner, type ToasterProps } from "sonner"
-import { CircleCheckIcon, InfoIcon, TriangleAlertIcon, OctagonXIcon, Loader2Icon } from "lucide-react"
+import { useTheme } from "next-themes";
+import { Toaster as Sonner, type ToasterProps } from "sonner";
+import {
+  CircleCheckIcon,
+  InfoIcon,
+  TriangleAlertIcon,
+  OctagonXIcon,
+  Loader2Icon,
+} from "lucide-react";
 
 const Toaster = ({ ...props }: ToasterProps) => {
-  const { theme = "system" } = useTheme()
+  const { theme = "system" } = useTheme();
 
   return (
     <Sonner
       theme={theme as ToasterProps["theme"]}
       className="toaster group"
       icons={{
-        success: (
-          <CircleCheckIcon className="size-6 text-green-600" />
-        ),
-        info: (
-          <InfoIcon className="size-6 text-blue-500" />
-        ),
-        warning: (
-          <TriangleAlertIcon className="size-6 text-yellow-300" />
-        ),
-        error: (
-          <OctagonXIcon className="size-6 text-red-600" />
-        ),
-        loading: (
-          <Loader2Icon className="size-6 animate-spin" />
-        ),
+        success: <CircleCheckIcon className="size-6 text-green-600" />,
+        info: <InfoIcon className="size-6 text-blue-500" />,
+        warning: <TriangleAlertIcon className="size-6 text-yellow-300" />,
+        error: <OctagonXIcon className="size-6 text-red-600" />,
+        loading: <Loader2Icon className="size-6 animate-spin" />,
       }}
       style={
         {
@@ -43,7 +39,7 @@ const Toaster = ({ ...props }: ToasterProps) => {
       }}
       {...props}
     />
-  )
-}
+  );
+};
 
-export { Toaster }
+export { Toaster };

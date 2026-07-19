@@ -1,5 +1,5 @@
 "use client";
-
+import { useTheme } from "next-themes";
 import {
   ResponsiveContainer,
   LineChart,
@@ -25,9 +25,11 @@ function CustomTooltip({ active, payload, label }: any) {
   if (!active || !payload || !payload.length) return null;
 
   return (
-    <div className="rounded-2xl border border-[#e7ddd3] bg-[#f8f2eb] px-4 py-3 shadow-md">
-      <p className="mb-2 text-sm font-medium text-black">{label}</p>
-      <p className="text-sm text-black">
+    <div className="rounded-2xl border border-[#e7ddd3] dark:border-secondary bg-[#f8f2eb] dark:bg-card-foreground px-4 py-3 shadow-md">
+      <p className="mb-2 text-sm font-medium text-black dark:text-input">
+        {label}
+      </p>
+      <p className="text-sm text-black dark:text-input">
         Revenue : ${payload[0].value.toLocaleString()}
       </p>
     </div>
@@ -35,9 +37,10 @@ function CustomTooltip({ active, payload, label }: any) {
 }
 
 export default function RevenueChart() {
+  const { resolvedTheme } = useTheme();
   return (
-    <div className="rounded-3xl p-6">
-      <div className="mt-8 h-[350px]">
+    <div className="rounded-3xl p-4">
+      <div className="mt-8 h-[280px]">
         <ResponsiveContainer width="100%" height="100%">
           <LineChart
             data={data}
@@ -71,14 +74,14 @@ export default function RevenueChart() {
             <Line
               type="monotone"
               dataKey="revenue"
-              stroke="#171717"
+              stroke={resolvedTheme === "dark" ? "#ffffff" : "#171717"}
               strokeWidth={3}
               dot={false}
               activeDot={{
                 r: 5,
-                fill: "#171717",
-                stroke: "#ffffff",
                 strokeWidth: 2,
+                fill: resolvedTheme === "dark" ? "#ffffff" : "#171717",
+                stroke: resolvedTheme === "dark" ? "#444" : "#ffffff",
               }}
             />
           </LineChart>
