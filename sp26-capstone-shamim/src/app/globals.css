@@ -52,6 +52,8 @@
   --color-graytext: #78716c;
   --color-grayicon: #544644;
   --color-Chart: #c2410c;
+  --color-popover: #78716c;
+  --color-login: #292524;
 }
 
 :root {
@@ -59,7 +61,7 @@
   --foreground: oklch(0.145 0 0);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
+  --popover: #464342;
   --popover-foreground: oklch(0.145 0 0);
   --primary: oklch(0.205 0 0);
   --primary-foreground: oklch(0.985 0 0);
