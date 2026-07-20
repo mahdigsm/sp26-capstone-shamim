@@ -55,20 +55,22 @@ export default function TasksCard() {
   };
 
   return (
-    <Card className="rounded-2xl shadow-sm bg-Section dark:bg-background">
+    <Card className="rounded-2xl shadow-sm bg-Section dark:bg-card dark:border-graytext border">
       <CardHeader className="pb-5 flex flex-row items-center justify-between">
-        <CardTitle className="pt-2 text-sm font-semibold">Tasks</CardTitle>
+        <CardTitle className="pt-2 text-base dark:text-input font-semibold">
+          Tasks
+        </CardTitle>
 
         <Badge
           variant="secondary"
-          className="rounded-sm px-2 py-1 bg-Secondary"
+          className="rounded-sm px-2 py-1 bg-Secondary dark:bg-olive-800"
         >
           {completed}/{tasks.length}
         </Badge>
       </CardHeader>
 
       <CardContent className="space-y-6">
-        <Progress value={progress} className="h-1.5" />
+        <Progress value={progress} className="h-2" />
 
         <div className="space-y-5">
           {tasks.map((task) => (
@@ -78,21 +80,21 @@ export default function TasksCard() {
                 className="flex items-center gap-3 cursor-pointer select-none"
               >
                 <div
-                  className={`size-4 rounded border flex items-center justify-center transition-all ${
+                  className={`size-5 rounded border flex items-center justify-center transition-all ${
                     task.completed
-                      ? "bg-neutral-900 border-neutral-900"
-                      : "bg-Section border-gray-300"
+                      ? "bg-neutral-900 dark:bg-Section border-neutral-900"
+                      : "bg-Section border-gray-300 dark:bg-foreground"
                   }`}
                 >
                   {task.completed && (
-                    <Check className="h-3.5 w-3.5 text-white" />
+                    <Check className="size-4 text-white dark:text-black" />
                   )}
                 </div>
 
                 <p
-                  className={`text-sm transition-all ${
+                  className={`text-sm dark:text-input transition-all ${
                     task.completed
-                      ? "line-through text-muted-foreground"
+                      ? "line-through text-muted-foreground dark:text-popover"
                       : "text-foreground"
                   }`}
                 >

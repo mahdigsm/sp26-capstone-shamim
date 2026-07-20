@@ -36,17 +36,17 @@ const notifications = [
 
 export default function NotificationsCard() {
   return (
-    <Card className="rounded-xl bg-Section dark:bg-background">
+    <Card className="rounded-xl bg-Section dark:bg-card">
       <CardHeader>
         <div className="flex items-center justify-between">
-          <CardTitle className="text-base font-sans pb-6">
+          <CardTitle className="text-lg font-sans pb-6 dark:text-white">
             Notifications
           </CardTitle>
 
           <div className="flex items-center gap-2">
             <span className="text-xs text-muted-foreground">Enable</span>
 
-            <Switch defaultChecked />
+            <Switch className="dark:bg-input" defaultChecked />
           </div>
         </div>
       </CardHeader>
@@ -60,7 +60,7 @@ export default function NotificationsCard() {
               <Icon size={18} className={`${item.color} mt-1 shrink-0`} />
 
               <div>
-                <p className="text-xs">{item.title}</p>
+                <p className="text-sm dark:text-input">{item.title}</p>
 
                 <span className="text-xs text-muted-foreground">
                   {item.time}
