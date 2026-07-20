@@ -9,7 +9,8 @@ export function SonnerAlert() {
       onClick={() =>
         toast.info("Info", {
           description: "Navigating to inventory management…",
-          className: "w-[360px] min-h-[88px] px-4 py-3 font-bold",
+          className:
+            "w-[360px] min-h-[88px] px-4 py-3 font-bold bg-Section! border-blue-500! border-0.5! border-l-6! dark:bg-foreground!",
           descriptionClassName: "text-sm text-gray-600 mt-1",
         })
       }

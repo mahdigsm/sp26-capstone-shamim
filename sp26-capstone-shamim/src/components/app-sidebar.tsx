@@ -58,7 +58,7 @@ export function AppSidebar() {
         </SidebarMenu>
       </SidebarContent>
       <SidebarFooter className="border-sidebar-border p-3 group-data-[collapsible=icon]:hidden">
-        <div className="rounded-lg border border-sidebar-border bg-background/60 p-3 dark:bg-background">
+        <div className="rounded-lg border bg-background/60 p-3 dark:bg-background">
           <div className="mb-2 flex items-center gap-2">
             <Package className="text-graytext" />
             <span className="text-xs font-semibold text-black dark:text-input">

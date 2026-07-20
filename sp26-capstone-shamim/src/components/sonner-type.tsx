@@ -13,7 +13,7 @@ export function SonnerType() {
         toast.success("Success", {
           description: "Report exported to CSV successfully",
           className:
-            "!border !border-green-500 !border-l-5 !border-l-green-500 !rounded-xl !bg-white !shadow-md dark:bg-blue-500 !dark:bg-foreground",
+            "!border !border-green-500 !border-l-5 !border-l-green-500 !rounded-xl !bg-white !shadow-md dark:bg-blue-500 dark:bg-foreground!",
         })
       }
     >
