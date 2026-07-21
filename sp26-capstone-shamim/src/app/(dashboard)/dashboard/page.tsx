@@ -35,7 +35,7 @@ function DashboardPage() {
         </div>
       </div>
       <div className="mb-6">
-        <Alert className="p-3 rounded-xl border-amber-200 dark:border-amber-600 dark:bg-sidebar-border">
+        <Alert className="p-3 rounded-xl bg-yellow-50 border-amber-200 dark:border-amber-600 dark:bg-sidebar-border">
           <TriangleAlert className="h-4 w-4 dark:text-yellow-500" />
           <AlertTitle className="text-amber-800 dark:text-yellow-400">
             Low stock warning

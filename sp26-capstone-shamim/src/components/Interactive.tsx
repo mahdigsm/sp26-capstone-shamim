@@ -16,14 +16,17 @@ import {
   DrawerHeader,
   DrawerTitle,
   DrawerDescription,
+  DrawerFooter,
+  DrawerClose,
 } from "@/components/ui/drawer";
 import { Info } from "lucide-react";
 import { toast } from "sonner";
 import { Alert, AlertTitle, AlertDescription } from "@/components/ui/alert";
+import { Textarea } from "./ui/textarea";
 
 export default function Interactive() {
   return (
-    <Card className="dark:bg-foreground bg-Section w-full h-auto border-Secondary border rounded-xl dark:border-olive-700">
+    <Card className="dark:bg-foreground bg-Section w-full h-auto border-Secondary rounded-xl dark:border-card-foreground border0">
       <CardHeader>
         <CardTitle>
           <h1 className="dark:text-input">Interactive Components</h1>
@@ -41,19 +44,83 @@ export default function Interactive() {
             <DrawerTrigger asChild>
               <Button
                 variant="outline"
-                className=" text-black rounded-sm hover:bg-Section duration-200 hover:shadow bg-primary dark:bg-card-foreground dark:text-white"
+                className=" bg-primary h-9 inline-flex items-center justify-center text-sm text-black rounded-sm dark:bg-card-foreground dark:text-white hover:bg-Section duration-200 hover:shadow"
               >
                 Open Drawer
               </Button>
             </DrawerTrigger>
-            <DrawerContent>
-              <div className="mx-auto w-full max-w-md p-6">
+
+            <DrawerContent className="m-0!">
+              <div className="mx-auto w-full pl-3 h-auto bg-Section">
                 <DrawerHeader className="px-0">
-                  <DrawerTitle>Quick Actions</DrawerTitle>
-                  <DrawerDescription>
-                    Manage shortcuts and actions from here.
+                  <DrawerTitle className="grid justify-items-start text-xl! pt-0!">
+                    Order Details — #ORD-8821
+                  </DrawerTitle>
+                  <DrawerDescription className="text-base! grid justify-items-start">
+                    Full order information and customer details
                   </DrawerDescription>
                 </DrawerHeader>
+
+                <div className="grid grid-cols-2 gap-10">
+                  <div className="space-y-5">
+                    <div>
+                      <p className="text-sm text-muted-foreground">Customer</p>
+                      <p className="font-sans text-base">Sarah Mitchell</p>
+                    </div>
+
+                    <div>
+                      <p className="text-sm text-muted-foreground">Amount</p>
+                      <p className="font-sans text-base">$89.00</p>
+                    </div>
+
+                    <div>
+                      <p className="text-sm text-muted-foreground">Date</p>
+                      <p className="font-sans text-base">Aug 14, 2024</p>
+                    </div>
+                  </div>
+
+                  <div className="space-y-5">
+                    <div>
+                      <p className="text-sm text-muted-foreground">Product</p>
+                      <p className="font-sans text-base">
+                        UI Design Masterclass
+                      </p>
+                    </div>
+
+                    <div>
+                      <p className="text-sm text-muted-foreground">Status</p>
+                      <p className="font-sans text-base">Completed</p>
+                    </div>
+
+                    <div>
+                      <p className="text-sm text-muted-foreground">Order ID</p>
+                      <p className="font-sans text-base">#ORD-8821</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="mt-8 border-t border-popover pt-4">
+                  <p className="mb-2 text-sm text-muted-foreground">
+                    Internal Note
+                  </p>
+
+                  <Textarea placeholder="Add a note about this order..." />
+                </div>
+
+                <DrawerFooter className="px-0">
+                  <Button className="bg-olive-900 transition-all duration-150 hover:opacity-90 hover:scale-[1.02] hover:bg-primary/90 border border-Secondary h-10! rounded-sm! hover:opacity-20!">
+                    Save Note
+                  </Button>
+
+                  <DrawerClose asChild>
+                    <Button
+                      variant="outline"
+                      className="border border-Secondary h-10! rounded-sm! hover:not-focus:bg-Section!"
+                    >
+                      Close
+                    </Button>
+                  </DrawerClose>
+                </DrawerFooter>
               </div>
             </DrawerContent>
           </Drawer>
@@ -64,7 +131,7 @@ export default function Interactive() {
               toast.success("Success", {
                 description: "Changes saved successfully!",
                 className:
-                  "border! border-green-500! border-l-5! !border-l-green-500 rounded-xl! bg-white! shadow-md!",
+                  "border! border-green-500! border-l-5! border-l-green-500 rounded-xl! bg-white! shadow-md! dark:bg-card!",
               })
             }
           >
@@ -77,7 +144,7 @@ export default function Interactive() {
               toast.warning("Warning", {
                 description: "Your session expires in 10 minutes.",
                 className:
-                  "!border !border-yellow-300 !border-l-5 !border-l-yellow-300 !rounded-xl !bg-white !shadow-md",
+                  "border border-yellow-300 border-l-5 border-l-yellow-300 rounded-xl bg-white shadow-md dark:bg-card! border-yellow-300! border-l-5! border-l-yellow-300!",
               })
             }
           >
@@ -90,7 +157,7 @@ export default function Interactive() {
               toast.error(" Error", {
                 description: "Failed to upload file. Try again.",
                 className:
-                  "!border !border-red-200 !border-l-5 !border-l-red-500 !rounded-xl !bg-white !shadow-md",
+                  "border border-red-200 border-l-5 border-l-red-500 rounded-xl bg-white shadow-md dark:bg-card! border-red-500! border-l-5! border-l-red-500!",
               })
             }
           >

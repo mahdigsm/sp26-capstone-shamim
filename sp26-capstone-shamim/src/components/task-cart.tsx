@@ -55,7 +55,7 @@ export default function TasksCard() {
   };
 
   return (
-    <Card className="rounded-2xl shadow-sm bg-Section dark:bg-card dark:border-graytext border">
+    <Card className="rounded-2xl shadow-sm bg-Section dark:bg-card dark:border-card-foreground border">
       <CardHeader className="pb-5 flex flex-row items-center justify-between">
         <CardTitle className="pt-2 text-base dark:text-input font-semibold">
           Tasks

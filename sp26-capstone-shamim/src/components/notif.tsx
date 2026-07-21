@@ -36,7 +36,7 @@ const notifications = [
 
 export default function NotificationsCard() {
   return (
-    <Card className="rounded-xl bg-Section dark:bg-card">
+    <Card className="rounded-xl bg-Section dark:bg-card dark:border-card-foreground border">
       <CardHeader>
         <div className="flex items-center justify-between">
           <CardTitle className="text-lg font-sans pb-6 dark:text-white">
