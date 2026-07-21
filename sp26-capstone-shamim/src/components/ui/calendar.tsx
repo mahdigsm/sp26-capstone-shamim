@@ -109,7 +109,7 @@ function Calendar({
         day: cn(
           "group/day relative  aspect-square h-full w-full rounded-(--cell-radius) p-0 text-center select-none [&:last-child[data-selected=true]_button]:rounded-r-(--cell-radius)",
           props.showWeekNumber
-            ? "[&:nth-child(2)[data-selected=true]_button]:rounded-l-(--cell-radius)"
+            ? "[&:nth-child(2)[data-selected=true]_button]:rounded-l-(--cell-radius) "
             : "[&:first-child[data-selected=true]_button]:rounded-l-(--cell-radius)",
           defaultClassNames.day,
         ),
@@ -123,11 +123,11 @@ function Calendar({
           defaultClassNames.range_end,
         ),
         today: cn(
-          "rounded-lg text-foreground dark:bg-amber-600 data-[selected=true]:rounded-lg bg-Secondary!",
+          "rounded-lg text-foreground dark:bg-secondary! dark:text-input! data-[selected=true]:rounded-lg bg-Secondary!",
           defaultClassNames.today,
         ),
         outside: cn(
-          "text-muted-foreground aria-selected:text-muted-foreground",
+          "text-muted-foreground aria-selected:text-muted-foreground ",
           defaultClassNames.outside,
         ),
         disabled: cn(
@@ -217,7 +217,7 @@ function CalendarDayButton({
       data-range-end={modifiers.range_end}
       data-range-middle={modifiers.range_middle}
       className={cn(
-        "rounded-lg! relative isolate z-10 flex aspect-square size-auto w-full min-w-(--cell-size) flex-col gap-1 border-0 leading-none font-normal group-data-[focused=true]/day:relative group-data-[focused=true]/day:z-10 group-data-[focused=true]/day:border-ring group-data-[focused=true]/day:ring-[3px] group-data-[focused=true]/day:ring-ring/50 data-[range-end=true]:rounded-(--cell-radius) data-[range-end=true]:rounded-r-(--cell-radius) data-[range-end=true]:bg-primary data-[range-end=true]:text-primary-foreground data-[range-middle=true]:rounded-none data-[range-middle=true]:bg-muted data-[range-middle=true]:text-foreground data-[range-start=true]:rounded-(--cell-radius) data-[range-start=true]:rounded-l-(--cell-radius) data-[range-start=true]:bg-primary data-[range-start=true]:text-primary-foreground data-[selected-single=true]:bg-black data-[selected-single=true]:text-primary-foreground dark:hover:text-foreground [&>span]:text-xs [&>span]:opacity-70 hover:bg-Secondary",
+        "rounded-lg! relative isolate z-10 flex aspect-square size-auto w-full min-w-(--cell-size) flex-col gap-1 border-0 leading-none font-normal group-data-[focused=true]/day:relative group-data-[focused=true]/day:z-10 group-data-[focused=true]/day:border-ring group-data-[focused=true]/day:ring-[2px] group-data-[focused=true]/day:ring-ring/50 data-[range-end=true]:rounded-(--cell-radius) data-[range-end=true]:rounded-r-(--cell-radius) data-[range-end=true]:bg-green-200! data-[range-end=true]:text-primary-foreground data-[range-middle=true]:rounded-none dark:group-data-[focused=true]/day:bg-input! dark:data-[range-middle=true]:bg-red-300! data-[range-middle=true]:text-foreground data-[range-start=true]:rounded-(--cell-radius) data-[range-start=true]:rounded-l-(--cell-radius) dark:data-[range-start=true]:bg-yellow-200! data-[range-start=true]:text-primary-foreground dark:hover:data-[selected-single=true]:bg-chart! data-[selected-single=true]:text-foreground [&>span]:text-xs [&>span]:opacity-70 dark:hover:bg-olive-700! dark:hover:text-input dark:group-data-[focused=true]/day:bg-input! dark:group-data-[focused=true]/day:text-olive-800!  hover:bg-Secondary! data-[selected-single=true]:bg-olive-800! data-[selected-single=true]:text-white!",
         defaultClassNames.day,
         className,
       )}

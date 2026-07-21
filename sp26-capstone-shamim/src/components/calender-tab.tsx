@@ -17,7 +17,7 @@ export function CalendarDemo() {
   const [date, setDate] = React.useState<Date | undefined>(new Date());
 
   return (
-    <Card className="rounded-xl w-full bg-Section dark:bg-card dark:border-Secondary">
+    <Card className="rounded-xl w-full bg-Section dark:bg-card border dark:border-card-foreground!">
       <CardHeader className="items-center text-left">
         <CardTitle className="font-sans text-xl dark:text-input">
           Calendar
