@@ -27,7 +27,7 @@ export default function OpenDialog() {
         <DialogTrigger asChild>
           <Button
             variant="outline"
-            className="h-9 inline-flex bg-primary! hover:bg-Secondary! items-center justify-center text-sm text-black dark:dark:bg-card-foreground dark:text-white icon-xs rounded-sm"
+            className="h-9 inline-flex bg-primary! hover:bg-Secondary! items-center justify-center text-sm text-black dark:bg-card-foreground! dark:text-white icon-xs rounded-sm"
           >
             Open Dialog
           </Button>

@@ -1,9 +1,8 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
-
 import {
   Table,
   TableBody,
@@ -14,16 +13,22 @@ import {
 } from "@/components/ui/table";
 
 import { Input } from "@/components/ui/input";
-
 import { Button } from "@/components/ui/button";
-
-import { Search, MoreHorizontal, Funnel } from "lucide-react";
-
+import {
+  Search,
+  MoreHorizontal,
+  Funnel,
+  ChevronRight,
+  ChevronsRight,
+  ChevronLeft,
+  ChevronsLeft,
+} from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 import { SelectDemo } from "@/components/select-button";
 import { SelectDemo2 } from "@/components/select2-button";
 import { Checkbox } from "@/components/ui/checkbox";
+
 const products = [
   {
     id: "PRD-001",
@@ -34,7 +39,6 @@ const products = [
     stock: "Unlimited",
     status: "Active",
   },
-
   {
     id: "PRD-002",
     name: "React Pro Template Pack",
@@ -44,7 +48,6 @@ const products = [
     stock: "Unlimited",
     status: "Active",
   },
-
   {
     id: "PRD-003",
     name: "Python for Data Science",
@@ -54,7 +57,6 @@ const products = [
     stock: "Unlimited",
     status: "Active",
   },
-
   {
     id: "PRD-004",
     name: "Analytics Dashboard Kit",
@@ -64,7 +66,6 @@ const products = [
     stock: "15",
     status: "Low Stock",
   },
-
   {
     id: "PRD-005",
     name: "Advanced TypeScript",
@@ -74,7 +75,6 @@ const products = [
     stock: "Unlimited",
     status: "Draft",
   },
-
   {
     id: "PRD-006",
     name: "DevOps Essentials",
@@ -84,7 +84,6 @@ const products = [
     stock: "Unlimited",
     status: "Inactive",
   },
-
   {
     id: "PRD-007",
     name: "Figma Component Library",
@@ -94,7 +93,6 @@ const products = [
     stock: "Unlimited",
     status: "Active",
   },
-
   {
     id: "PRD-008",
     name: "Node.js API Starter",
@@ -104,7 +102,6 @@ const products = [
     stock: "Unlimited",
     status: "Active",
   },
-
   {
     id: "PRD-009",
     name: "Business Analytics",
@@ -114,7 +111,6 @@ const products = [
     stock: "Unlimited",
     status: "Active",
   },
-
   {
     id: "PRD-010",
     name: "Mobile UX Design",
@@ -124,7 +120,6 @@ const products = [
     stock: "Unlimited",
     status: "Active",
   },
-
   {
     id: "PRD-011",
     name: "GraphQL Mastery",
@@ -134,7 +129,6 @@ const products = [
     stock: "Unlimited",
     status: "Draft",
   },
-
   {
     id: "PRD-012",
     name: "Tailwind CSS Cheat Sheet",
@@ -145,17 +139,16 @@ const products = [
     status: "Active",
   },
 ];
+
 export function ProductTable() {
   const [page, setPage] = useState(1);
-
   const [search, setSearch] = useState("");
-
   const [category, setCategory] = useState("All");
-
   const [status, setStatus] = useState("All");
   const [selected, setSelected] = useState<string[]>([]);
 
   const perPage = 4;
+
   const filteredProducts = useMemo(() => {
     return products.filter((product) => {
       const matchSearch = product.name
@@ -169,11 +162,17 @@ export function ProductTable() {
       return matchSearch && matchCategory && matchStatus;
     });
   }, [search, category, status]);
-  const totalPages = Math.ceil(filteredProducts.length / perPage);
+
+  const totalPages = Math.max(1, Math.ceil(filteredProducts.length / perPage));
+
+  useEffect(() => {
+    if (page > totalPages) {
+      setPage(totalPages);
+    }
+  }, [page, totalPages]);
 
   const currentProducts = filteredProducts.slice(
     (page - 1) * perPage,
-
     page * perPage,
   );
   const allSelected =
@@ -182,27 +181,34 @@ export function ProductTable() {
 
   const toggleAll = (checked: boolean) => {
     if (checked) {
-      setSelected(currentProducts.map((p) => p.id));
+      setSelected((prev) => [
+        ...new Set([...prev, ...currentProducts.map((p) => p.id)]),
+      ]);
     } else {
-      setSelected([]);
+      setSelected((prev) =>
+        prev.filter((id) => !currentProducts.some((p) => p.id === id)),
+      );
     }
   };
 
   const toggleOne = (id: string, checked: boolean) => {
     if (checked) {
-      setSelected((prev) => [...prev, id]);
+      setSelected((prev) => (prev.includes(id) ? prev : [...prev, id]));
     } else {
       setSelected((prev) => prev.filter((item) => item !== id));
     }
   };
+
   return (
-    <Card className="bg-Section rounded-base dark:bg-background">
+    <Card className="bg-Section rounded-base dark:bg-foreground">
       <CardHeader>
         <div className="flex items-center justify-between flex-wrap gap-4">
           <div>
-            <h2 className="text-base font-semibold mt-3">Product Inventory</h2>
+            <h2 className="text-lg font-semibold mt-3 dark:text-input">
+              Product Inventory
+            </h2>
 
-            <p className="text-muted-foreground">
+            <p className="text-muted-foreground text-base">
               {filteredProducts.length} Products · Page {page} of {totalPages}
             </p>
           </div>
@@ -216,16 +222,27 @@ export function ProductTable() {
                 value={search}
                 onChange={(e) => {
                   setSearch(e.target.value);
-
                   setPage(1);
                 }}
-                className="pl-9 w-72 w-full md:w-64 bg-Secondary rounded"
+                className="pl-9 h-10 w-full md:w-64 bg-Secondary rounded dark:bg-foreground border border-Secondary"
               />
             </div>
 
-            <SelectDemo />
+            <SelectDemo
+              value={category}
+              onValueChange={(value) => {
+                setCategory(value);
+                setPage(1);
+              }}
+            />
 
-            <SelectDemo2 />
+            <SelectDemo2
+              value={status}
+              onValueChange={(value) => {
+                setStatus(value);
+                setPage(1);
+              }}
+            />
           </div>
         </div>
       </CardHeader>
@@ -241,11 +258,11 @@ export function ProductTable() {
           >
             <Table>
               <TableHeader>
-                <TableRow>
+                <TableRow className=" dark:bg-foreground">
                   <TableHead className="w-10">
                     <Checkbox
+                      className="dark:bg-foreground! data-[state=checked]:bg-black data-[state=checked]:border-black bg-Section border! border-graytext! shadow-sm! size-4.5"
                       checked={allSelected}
-                      className="bg-Section border shadow-xl"
                       onCheckedChange={(checked) => toggleAll(!!checked)}
                     />
                   </TableHead>
@@ -258,11 +275,18 @@ export function ProductTable() {
                   <TableHead className="text-right">Actions</TableHead>
                 </TableRow>
               </TableHeader>
+
               <TableBody>
                 {currentProducts.map((product) => (
-                  <TableRow key={product.id} className="border-b">
-                    <TableCell className="w-10">
-                      <Checkbox />
+                  <TableRow key={product.id}>
+                    <TableCell>
+                      <Checkbox
+                        checked={selected.includes(product.id)}
+                        className="dark:bg-foreground! data-[state=checked]:bg-black data-[state=checked]:border-black bg-Section border! border-graytext! shadow-sm! size-4.5"
+                        onCheckedChange={(checked) =>
+                          toggleOne(product.id, !!checked)
+                        }
+                      />
                     </TableCell>
                     <TableCell>
                       <div className="flex items-center gap-3">
@@ -273,7 +297,10 @@ export function ProductTable() {
                         />
 
                         <div>
-                          <p className="font-semibold">{product.name}</p>
+                          <p className="font-semibold dark:text-input">
+                            {product.name}
+                          </p>
+
                           <p className="text-sm text-muted-foreground">
                             {product.id}
                           </p>
@@ -282,29 +309,30 @@ export function ProductTable() {
                     </TableCell>
 
                     <TableCell>
-                      <span className="rounded-md bg-secondary px-2 py-1 text-xs">
+                      <span className="rounded-md bg-Secondary px-2 py-1 text-xs">
                         {product.category}
                       </span>
                     </TableCell>
 
-                    <TableCell className="font-semibold">
+                    <TableCell className="font-semibold dark:text-input">
                       ${product.price}
                     </TableCell>
 
-                    <TableCell>{product.stock}</TableCell>
+                    <TableCell className="dark:text-input">
+                      {product.stock}
+                    </TableCell>
 
                     <TableCell>
                       <span
-                        className={`rounded-full px-3 py-1 text-xs font-medium border
-          ${
-            product.status === "Active"
-              ? "bg-green-100 border-green-200 text-green-700"
-              : product.status === "Low Stock"
-                ? "bg-yellow-100 border-yellow-200 text-yellow-700"
-                : product.status === "Draft"
-                  ? "bg-orange-100 border-orange-200 text-orange-700"
-                  : "bg-gray-100 border-gray-300 text-gray-700"
-          }`}
+                        className={`rounded-full px-3 py-1 text-xs font-medium border ${
+                          product.status === "Active"
+                            ? "bg-green-100 border-green-200 text-green-700"
+                            : product.status === "Low Stock"
+                              ? "bg-yellow-100 border-yellow-200 text-yellow-700"
+                              : product.status === "Draft"
+                                ? "bg-orange-200 border-orange-300 text-orange-700"
+                                : "bg-gray-100 border-gray-300 text-gray-700"
+                        }`}
                       >
                         {product.status}
                       </span>
@@ -312,62 +340,52 @@ export function ProductTable() {
 
                     <TableCell className="text-right">
                       <Button variant="ghost" size="icon">
-                        <MoreHorizontal className="h-5 w-5" />
+                        <MoreHorizontal className="h-5 w-5 dark:text-input" />
                       </Button>
                     </TableCell>
                   </TableRow>
                 ))}
               </TableBody>
             </Table>
-            <div className="flex items-center justify-between border-t pt-4">
-              <p className="text-sm text-muted-foreground">
-                Showing {(page - 1) * perPage + 1}–
-                {Math.min(page * perPage, filteredProducts.length)} of{" "}
-                {filteredProducts.length}
-              </p>
-
-              {selected.length > 0 && (
-                <div className="flex items-center gap-3">
-                  <span className="text-sm font-medium">
-                    {selected.length} selected
-                  </span>
-
-                  <Button
-                    variant="link"
-                    className="p-0 h-auto"
-                    onClick={() => setSelected([])}
-                  >
-                    Clear
-                  </Button>
-                </div>
-              )}
-            </div>
           </motion.div>
         </AnimatePresence>
 
-        <div className="mt-4 border-t pt-4 flex items-center justify-between">
-          <div className="flex items-center gap-4 text-sm text-muted-foreground">
-            <span>
+        <div className="mt-4 border-t px-6 py-4 flex items-center justify-between">
+          {/* Left */}
+          <div className="flex items-center gap-5">
+            <span className="text-sm text-muted-foreground">
               Showing {(page - 1) * perPage + 1}–
               {Math.min(page * perPage, filteredProducts.length)} of{" "}
               {filteredProducts.length}
             </span>
 
-            <span className="font-medium text-foreground">2 selected</span>
+            {selected.length > 0 && (
+              <div className="flex items-center gap-2">
+                <span className="text-sm font-medium dark:text-input">
+                  {selected.length} selected
+                </span>
 
-            <button className="text-muted-foreground hover:text-foreground underline underline-offset-4">
-              Clear
-            </button>
+                <Button
+                  variant="link"
+                  className="h-auto p-0 text-muted-foreground hover:text-foreground"
+                  onClick={() => setSelected([])}
+                >
+                  Clear
+                </Button>
+              </div>
+            )}
           </div>
 
+          {/* Right */}
           <div className="flex items-center gap-2">
             <Button
               variant="outline"
               size="icon"
               onClick={() => setPage(1)}
               disabled={page === 1}
+              className="h-8 w-8 rounded-md dark:bg-olive-800"
             >
-              «
+              <ChevronsLeft className="dark:text-primary text-black" />
             </Button>
 
             <Button
@@ -375,15 +393,21 @@ export function ProductTable() {
               size="icon"
               onClick={() => setPage(page - 1)}
               disabled={page === 1}
+              className="h-8 w-8 rounded-md  dark:bg-olive-800"
             >
-              ‹
+              <ChevronLeft className="dark:text-primary text-black" />
             </Button>
 
             {Array.from({ length: totalPages }).map((_, i) => (
               <Button
                 key={i}
-                variant={page === i + 1 ? "default" : "outline"}
                 size="icon"
+                variant={page === i + 1 ? "default" : "outline"}
+                className={
+                  page === i + 1
+                    ? "h-8 w-8 rounded-md bg-black dark:bg-primary dark:text-black text-white hover:bg-black"
+                    : "h-8 w-8 rounded-md"
+                }
                 onClick={() => setPage(i + 1)}
               >
                 {i + 1}
@@ -395,8 +419,9 @@ export function ProductTable() {
               size="icon"
               onClick={() => setPage(page + 1)}
               disabled={page === totalPages}
+              className="h-8 w-8 rounded-md  dark:bg-olive-800"
             >
-              ›
+              <ChevronRight className="dark:text-primary text-black" />
             </Button>
 
             <Button
@@ -404,8 +429,9 @@ export function ProductTable() {
               size="icon"
               onClick={() => setPage(totalPages)}
               disabled={page === totalPages}
+              className="h-8 w-8 rounded-md  dark:bg-olive-800"
             >
-              »
+              <ChevronsRight className="dark:text-primary text-black" />
             </Button>
           </div>
         </div>

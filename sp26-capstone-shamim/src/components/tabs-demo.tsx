@@ -1,3 +1,5 @@
+"use client";
+
 import {
   Card,
   CardContent,
@@ -5,7 +7,17 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+
 import RevenueChart from "@/components/chart-bar-demo-axis";
 import { ChartBar } from "@/components/order-chart";
 import { Progress } from "@/components/ui/progress";
@@ -13,89 +25,112 @@ import { Progress } from "@/components/ui/progress";
 export function TabsDemo() {
   return (
     <Tabs defaultValue="Revenue" className="w-full">
-      <TabsList
-        className="
-    grid
-    grid-cols-3
-    w-full md:w-fit
-    h-auto
-    bg-Section
-    dark:bg-card-foreground
-    rounded-xl
-    p-1
-    mb-3
-    dark:text-input
-  "
-      >
-        <TabsTrigger value="Revenue">Revenue</TabsTrigger>
-        <TabsTrigger value="Orders">Orders</TabsTrigger>
-        <TabsTrigger value="categories">By Category </TabsTrigger>
-      </TabsList>
+      {/* Header */}
+      <div className="flex items-center justify-between mb-4">
+        <TabsList
+          className="
+            grid
+            grid-cols-3
+            w-fit
+            bg-Section
+            dark:bg-card-foreground
+            rounded-xl
+            p-1
+          "
+        >
+          <TabsTrigger value="Revenue">Revenue</TabsTrigger>
+          <TabsTrigger value="Orders">Orders</TabsTrigger>
+          <TabsTrigger value="categories">By Category</TabsTrigger>
+        </TabsList>
+
+        <Select defaultValue="8m">
+          <SelectTrigger className="w-[150px] bg-Secondary h-10! dark:bg-foreground border-graytext">
+            <SelectValue />
+          </SelectTrigger>
+
+          <SelectContent className="bg-primary flex items-center justify-center">
+            <SelectItem value="30d">Last 30 days</SelectItem>
+            <SelectItem value="3m">Last 3 months</SelectItem>
+            <SelectItem value="8m">Last 8 months</SelectItem>
+            <SelectItem value="1y">Last year</SelectItem>
+          </SelectContent>
+        </Select>
+      </div>
+
+      {/* Revenue */}
       <TabsContent value="Revenue">
-        <Card className="bg-Section p-4! border border-Secondary dark:border-secondary rounded-xl dark:bg-card dark:text-input h-120">
+        <Card className="bg-Section border border-Secondary dark:border-secondary dark:bg-card rounded-xl h-[480px]">
           <CardHeader>
-            <CardTitle className="text-xl pt-2">Revenue Overview</CardTitle>
-            <CardDescription className="text-xl mt-2 dark:text-chart-1">
+            <CardTitle className="text-xl">Revenue Overview</CardTitle>
+
+            <CardDescription className="text-base dark:text-chart-1">
               Monthly revenue trend — Jan to Aug 2024
             </CardDescription>
           </CardHeader>
-          <CardContent className="text-sm text-muted-foreground">
+
+          <CardContent>
             <RevenueChart />
           </CardContent>
         </Card>
       </TabsContent>
+
+      {/* Orders */}
       <TabsContent value="Orders">
-        <Card className="bg-Section dark:bg-card text-card-foreground flex flex-col gap-6 rounded-xl p-7! border dark:border-secondary border-Secondary ">
+        <Card className="bg-Section dark:bg-card border border-Secondary dark:border-secondary rounded-xl h-[480px]">
           <CardHeader>
-            <CardTitle className="text-xl dark:text-input">
-              Order Volume
-            </CardTitle>
-            <CardDescription className="text-xl mt-2 dark:text-chart-1">
+            <CardTitle className="text-xl">Order Volume</CardTitle>
+
+            <CardDescription className="text-base dark:text-chart-1">
               Monthly order count — Jan to Aug 2024
             </CardDescription>
           </CardHeader>
-          <CardContent className="text-sm text-muted-foreground">
+
+          <CardContent>
             <ChartBar />
           </CardContent>
         </Card>
       </TabsContent>
+
+      {/* Categories */}
       <TabsContent value="categories">
-        <Card className="bg-Section pb-6 border border-Secondary p-7 px-4 dark:bg-card dark:border-secondary rounded-xl">
+        <Card className="bg-Section dark:bg-card border border-Secondary dark:border-secondary rounded-xl h-[380px]">
           <CardHeader>
-            <CardTitle className="text-xl  font-semibold dark:text-input">
-              Sales by Category
-            </CardTitle>
-            <CardDescription className="text-xl mt-2 dark:text-chart-1">
+            <CardTitle className="text-xl">Sales by Category</CardTitle>
+
+            <CardDescription className="text-base dark:text-chart-1">
               Product category breakdown
             </CardDescription>
           </CardHeader>
-          <CardContent className="space-y-6 pt-4">
+
+          <CardContent className="space-y-6 h-auto">
             <div>
               <div className="flex justify-between mb-2">
-                <span className="font-bold dark:text-input">E-Books</span>
-                <span className="text-graytext">38%</span>
+                <span className="font-semibold">E-Books</span>
+                <span>38%</span>
               </div>
               <Progress value={38} />
             </div>
+
             <div>
               <div className="flex justify-between mb-2">
-                <span className="font-bold dark:text-input">Courses</span>
-                <span className="text-graytext">27%</span>
+                <span className="font-semibold">Courses</span>
+                <span>27%</span>
               </div>
               <Progress value={27} />
             </div>
+
             <div>
               <div className="flex justify-between mb-2">
-                <span className="font-bold dark:text-input">Templates</span>
-                <span className="text-graytext">19%</span>
+                <span className="font-semibold">Templates</span>
+                <span>19%</span>
               </div>
               <Progress value={19} />
             </div>
 
             <div>
               <div className="flex justify-between mb-2">
-                <span className="font-bold dark:text-input">Software</span>
-                <span className="text-graytext">16%</span>
+                <span className="font-semibold">Software</span>
+                <span>16%</span>
               </div>
               <Progress value={16} />
             </div>

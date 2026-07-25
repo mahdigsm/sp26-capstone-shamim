@@ -7,12 +7,7 @@ import {
 
 export function AccordionDemo() {
   return (
-    <Accordion
-      type="single"
-      collapsible
-      defaultValue="item-1"
-      className="max-w-lg space-y-2 p-6"
-    >
+    <Accordion type="single" collapsible className="max-w-lg space-y-2 p-6">
       <AccordionItem value="item-1">
         <AccordionTrigger className="text-black dark:text-input">
           How do I add a new digital product?

@@ -108,7 +108,7 @@ export default function Interactive() {
                 </div>
 
                 <DrawerFooter className="px-0">
-                  <Button className="bg-olive-900 transition-all duration-150 hover:opacity-90 hover:scale-[1.02] hover:bg-primary/90 border border-Secondary h-10! rounded-sm! hover:opacity-20!">
+                  <Button className="bg-olive-900 transition-all duration-150 hover:scale-[1.02] hover:bg-primary/90 border border-Secondary h-10! rounded-sm! hover:opacity-20!">
                     Save Note
                   </Button>
 
@@ -144,7 +144,7 @@ export default function Interactive() {
               toast.warning("Warning", {
                 description: "Your session expires in 10 minutes.",
                 className:
-                  "border border-yellow-300 border-l-5 border-l-yellow-300 rounded-xl bg-white shadow-md dark:bg-card! border-yellow-300! border-l-5! border-l-yellow-300!",
+                  "border border-yellow-300 border-l-5 border-l-yellow-300 rounded-xl bg-white! shadow-md dark:bg-card! border-yellow-300! border-l-5! border-l-yellow-300!",
               })
             }
           >
@@ -157,14 +157,14 @@ export default function Interactive() {
               toast.error(" Error", {
                 description: "Failed to upload file. Try again.",
                 className:
-                  "border border-red-200 border-l-5 border-l-red-500 rounded-xl bg-white shadow-md dark:bg-card! border-red-500! border-l-5! border-l-red-500!",
+                  "border border-red-200 border-l-5 border-l-red-500 rounded-xl bg-white! shadow-md dark:bg-card! border-red-500! border-l-5! border-l-red-500!",
               })
             }
           >
             ✗ Error
           </Button>
         </div>
-        <Alert className="w-full rounded-2xl border  bg-Section px-4 py-4 flex items-start gap-3 dark:bg-card">
+        <Alert className="w-full rounded-2xl border  bg-Section px-4 py-4 flex items-start gap-3 dark:bg-card mt-6">
           <Info className="h-5 w-5 text-green-600 mt-0.5 dark:text-popover" />
 
           <div className="flex-1">

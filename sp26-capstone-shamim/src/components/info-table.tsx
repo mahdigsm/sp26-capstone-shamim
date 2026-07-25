@@ -5,7 +5,16 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-
+import {
+  Drawer,
+  DrawerTrigger,
+  DrawerContent,
+  DrawerHeader,
+  DrawerTitle,
+  DrawerDescription,
+  DrawerFooter,
+  DrawerClose,
+} from "@/components/ui/drawer";
 import {
   Table,
   TableBody,
@@ -17,6 +26,10 @@ import {
 
 import { Badge } from "@/components/ui/badge";
 import { DrawerSwipeHandle } from "./open-drawer";
+import { Button } from "@/components/ui/button";
+import { toast } from "sonner";
+import { Textarea } from "@/components/ui/textarea";
+import { ChevronRight } from "lucide-react";
 
 const invoices = [
   {
@@ -65,8 +78,22 @@ export function TableDemo() {
   return (
     <Card className="rounded-2xl border shadow-none bg-Section dark:bg-foreground">
       <CardHeader className="pb-5">
-        <CardTitle className="text-lg font-semibold dark:text-input">
+        <CardTitle className="text-lg font-semibold dark:text-input flex items-center justify-between">
           Recent Orders
+          <Button
+            variant="ghost"
+            className="mt-5 mr-4 inline-flex items-center justify-center text-sm text-black duration-200 dark:text-white"
+            onClick={() =>
+              toast.info("Info", {
+                description: "Your session expires in 10 minutes.",
+                className:
+                  "border border-blue-300 border-l-5 border-l-blue-300 rounded-xl bg-white! shadow-md dark:bg-card! border-blue-400! border-l-5! border-l-blue-500!",
+              })
+            }
+          >
+            View All
+            <ChevronRight />
+          </Button>
         </CardTitle>
 
         <CardDescription className="text-base text-muted-foreground dark:text-popover">
@@ -165,9 +192,106 @@ export function TableDemo() {
                 </TableCell>
 
                 <TableCell className="pr-6 text-right">
-                  <button className="text-xs  duration-200 hover:scale-110 dark:text-input dark:hover-bg-blue-500">
-                    View
-                  </button>
+                  <Drawer>
+                    <DrawerTrigger asChild>
+                      <Button
+                        variant="ghost"
+                        className="inline-flex items-center justify-center text-xs text-black dark:text-white duration-200"
+                      >
+                        View
+                      </Button>
+                    </DrawerTrigger>
+
+                    <DrawerContent className="m-0!">
+                      <div className="mx-auto w-full pl-3 h-auto bg-Section">
+                        <DrawerHeader className="px-0">
+                          <DrawerTitle className="grid justify-items-start text-xl! pt-0!">
+                            Order Details — #ORD-8821
+                          </DrawerTitle>
+                          <DrawerDescription className="text-base! grid justify-items-start">
+                            Full order information and customer details
+                          </DrawerDescription>
+                        </DrawerHeader>
+
+                        <div className="grid grid-cols-2 gap-10">
+                          <div className="space-y-5">
+                            <div>
+                              <p className="text-sm text-muted-foreground">
+                                Customer
+                              </p>
+                              <p className="font-sans text-base">
+                                Sarah Mitchell
+                              </p>
+                            </div>
+
+                            <div>
+                              <p className="text-sm text-muted-foreground">
+                                Amount
+                              </p>
+                              <p className="font-sans text-base">$89.00</p>
+                            </div>
+
+                            <div>
+                              <p className="text-sm text-muted-foreground">
+                                Date
+                              </p>
+                              <p className="font-sans text-base">
+                                Aug 14, 2024
+                              </p>
+                            </div>
+                          </div>
+
+                          <div className="space-y-5">
+                            <div>
+                              <p className="text-sm text-muted-foreground">
+                                Product
+                              </p>
+                              <p className="font-sans text-base">
+                                UI Design Masterclass
+                              </p>
+                            </div>
+
+                            <div>
+                              <p className="text-sm text-muted-foreground">
+                                Status
+                              </p>
+                              <p className="font-sans text-base">Completed</p>
+                            </div>
+
+                            <div>
+                              <p className="text-sm text-muted-foreground">
+                                Order ID
+                              </p>
+                              <p className="font-sans text-base">#ORD-8821</p>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div className="mt-8 border-t border-popover pt-4">
+                          <p className="mb-2 text-sm text-muted-foreground">
+                            Internal Note
+                          </p>
+
+                          <Textarea placeholder="Add a note about this order..." />
+                        </div>
+
+                        <DrawerFooter className="px-0">
+                          <Button className="bg-olive-900 transition-all duration-150 hover:scale-[1.02] hover:bg-primary/90 border border-Secondary h-10! rounded-sm! hover:opacity-20!">
+                            Save Note
+                          </Button>
+
+                          <DrawerClose asChild>
+                            <Button
+                              variant="outline"
+                              className="border border-Secondary h-10! rounded-sm! hover:not-focus:bg-Section!"
+                            >
+                              Close
+                            </Button>
+                          </DrawerClose>
+                        </DrawerFooter>
+                      </div>
+                    </DrawerContent>
+                  </Drawer>
                 </TableCell>
               </TableRow>
             ))}
